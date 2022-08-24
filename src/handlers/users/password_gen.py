@@ -26,8 +26,6 @@ async def bot_start(message : types.Message):
 
 @dp.message_handler(state=PassFSM.get_length)
 async def sending_password(message: types.Message, state: FSMContext):
-    async with state.proxy() as data:
-        data['lenght'] = message.text
     try:
         async with state.proxy() as data:
             data['length'] = message.text
